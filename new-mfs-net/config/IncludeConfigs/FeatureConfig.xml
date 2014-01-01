@@ -1,0 +1,43 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+
+				
+		<event-handler event="Admin.Feature.Management" access="public">
+		
+			<notify listener="CategoryManager" method="GetCategories" resultKey="request.AvailableCategories" />	
+			
+			<notify listener="FeatureManager" method="GetFeatures" resultKey="request.Features"  />
+			
+			<view-page name="FeatureForm" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Admin.Feature.Available" access="public">	
+			<notify listener="ProductUpsellManager" method="GetAvailableProducts" resultKey="request.AvailableCategories" />			
+		
+			<view-page name="ProductAvailableOptions" />
+		</event-handler>
+		
+		<event-handler event="Admin.Feature.Submit" access="public">		
+			<notify listener="FeatureManager" method="UpdateFeatures" />		
+		</event-handler>
+
+			
+		
+	</event-handlers>
+	
+	<page-views>	
+	
+		<page-view name="FeatureForm" page="/DisplayPages/admin/Features/FeatureForm.cfm" />
+		
+								
+	</page-views>
+
+</mach-ii>
+

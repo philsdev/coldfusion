@@ -1,0 +1,115 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- /////////////////    SALES REPORTS EVENTS      /////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Report.Management" access="public">			
+			<!-- <execute subroutine="GetPaginationStart" />			
+			<notify listener="ReportManager" method="GetReports" resultKey="request.Reports"  />
+			<event-arg name="GridQuery" variable="request.Reports" />
+			<execute subroutine="GetPaginationEnd" />
+				
+			<view-page name="ReportGrid" contentKey="request.ReportGrid" />
+		
+			
+			<notify listener="ReportManager" method="GetSalesReport" resultKey="request.Reports"  />
+			-->
+			<notify listener="ProductUpsellManager" method="GetProductUpsells" resultKey="request.ProductUpsells" />
+			
+			<event-arg name="ParentID" value="0" />
+			<notify listener="CategoryManager" method="GetDisplayCategories" resultKey="request.Categories" />			
+			<event-arg name="FieldName" value="ProductCategory" />
+			<event-arg name="FieldID" value="ProductCategoryOptions" />
+			<event-arg name="DataQuery" variable="request.Categories" />
+			<event-arg name="QueryIDColumn" value="CategoryID" />
+			<event-arg name="QueryLabelColumn" value="CategoryName" />
+			<event-arg name="SelectedValue" value="" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.CategoryBox" />
+			
+					
+			<view-page name="ReportList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>		
+							
+		<event-handler event="Admin.Report.Search" access="public">		
+					
+			<notify listener="ReportManager" method="GetSalesReport" resultKey="request.Reports"  />
+			<notify listener="ProductUpsellManager" method="GetProductUpsells" resultKey="request.ProductUpsells" />
+			
+			<event-arg name="ParentID" value="0" />
+			<notify listener="CategoryManager" method="GetDisplayCategories" resultKey="request.Categories" />			
+			<event-arg name="FieldName" value="ProductCategory" />
+			<event-arg name="FieldID" value="ProductCategoryOptions" />
+			<event-arg name="DataQuery" variable="request.Categories" />
+			<event-arg name="QueryIDColumn" value="CategoryID" />
+			<event-arg name="QueryLabelColumn" value="CategoryName" />
+			<event-arg name="SelectedValue" value="" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.CategoryBox" />
+				
+			<view-page name="ReportList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Admin.Report.Product.Available" access="public">	
+			<notify listener="ProductUpsellManager" method="GetAvailableProducts" resultKey="request.AvailableProducts" />			
+		
+			<view-page name="ProductAvailableOptions" />
+		</event-handler>
+		
+		
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- /////////    Purchased Product REPORTS EVENTS      ////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Report.Purchased.Management" access="public">			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="ReportManager" method="GetPurchasedProducts" resultKey="request.PurchasedProducts"  />
+			<event-arg name="GridQuery" variable="request.PurchasedProducts" />
+			<execute subroutine="GetPaginationEnd" />
+				
+			<view-page name="ProductReportGrid" contentKey="request.ProductGrid" />
+		
+			<notify listener="ReportManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<notify listener="ReportManager" method="GetDefaultSord" resultKey="request.DefaultSord" />			
+			<execute subroutine="GetSordBox" />
+			
+			<view-page name="ProductReportList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>		
+							
+		<event-handler event="Admin.Report.Purchased.Search" access="public">		
+			
+			<notify listener="ProductUpsellManager" method="GetProductSelected" resultKey="request.ProductUpsells" />		
+				
+			<notify listener="ReportManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="ReportManager" method="GetPurchasedProducts" resultKey="request.PurchasedProducts"  />
+			<event-arg name="GridQuery" variable="request.PurchasedProducts" />
+			<execute subroutine="GetPaginationEnd" />			
+				
+			<view-page name="ProductReportGrid" />
+		</event-handler>
+		
+		
+	</event-handlers>
+	
+	<page-views>
+	
+		<page-view name="ReportList" page="/DisplayPages/admin/Reports/ReportList.cfm" />
+		<page-view name="ReportGrid" page="/DisplayPages/admin/Reports/ReportGrid.cfm" />
+		
+		<page-view name="ProductReportList" page="/DisplayPages/admin/Reports/ProductReportList.cfm" />
+		<page-view name="ProductReportGrid" page="/DisplayPages/admin/Reports/ProductReportGrid.cfm" />
+								
+	</page-views>
+
+</mach-ii>
+

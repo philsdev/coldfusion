@@ -1,0 +1,74 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Page.Management" access="public">	
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="PageManager" method="GetPages" resultKey="request.Pages"  />
+			<event-arg name="GridQuery" variable="request.Pages" />
+			<execute subroutine="GetPaginationEnd" />		
+				
+			<view-page name="PageGrid" contentKey="request.PageGrid" />
+						
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />
+			
+			<notify listener="PageManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<notify listener="PageManager" method="GetDefaultSord" resultKey="request.DefaultSord" />			
+			<execute subroutine="GetSordBox" />
+			
+			<view-page name="PageList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Admin.Page.Search" access="public">					
+			<notify listener="PageManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="PageManager" method="GetPages" resultKey="request.Pages"  />
+			<event-arg name="GridQuery" variable="request.Pages" />
+			<execute subroutine="GetPaginationEnd" />			
+				
+			<view-page name="PageGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.Page.Information" access="public">		
+			<notify listener="PageManager" method="GetPageDetails" resultKey="request.Page" />
+			
+			<event-arg name="SelectedValue" variable="request.Page.Status" />
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />
+			
+			<event-arg name="UrlStruct" variable="URL" />
+			<notify listener="AdminManager" method="GetSubmitButtons" resultKey="request.SubmitButtons" />
+			
+			<view-page name="PageForm" contentKey="request.content" />		
+			<view-page name="mainDisplayPage" />			
+		</event-handler>
+		
+		<event-handler event="Admin.Page.Submit" access="public">		
+			<notify listener="PageManager" method="UpdatePage" />		
+		</event-handler>
+		
+		<event-handler event="Admin.Page.Delete" access="public">					
+			<notify listener="PageManager" method="DeletePage" />		
+		</event-handler>		
+		
+	</event-handlers>
+	
+	<!-- PAGE-VIEWS -->
+	<page-views>
+		
+		<page-view name="PageList" page="/DisplayPages/admin/Pages/PageList.cfm" />
+		<page-view name="PageGrid" page="/DisplayPages/admin/Pages/PageGrid.cfm" />
+		<page-view name="PageForm" page="/DisplayPages/admin/Pages/PageForm.cfm" />					
+						
+	</page-views>
+
+</mach-ii>

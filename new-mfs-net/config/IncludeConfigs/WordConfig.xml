@@ -1,0 +1,50 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Word.Management" access="public">			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="WordManager" method="GetWords" resultKey="request.Words"  />
+			<event-arg name="GridQuery" variable="request.Words" />
+			<execute subroutine="GetPaginationEnd" />
+				
+			<view-page name="WordGrid" contentKey="request.WordGrid" />
+		
+			<notify listener="WordManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<notify listener="WordManager" method="GetDefaultSord" resultKey="request.DefaultSord" />			
+			<execute subroutine="GetSordBox" />
+			
+			<view-page name="WordList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>		
+							
+		<event-handler event="Admin.Word.Search" access="public">					
+			<notify listener="WordManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="WordManager" method="GetWords" resultKey="request.Words"  />
+			<event-arg name="GridQuery" variable="request.Words" />
+			<execute subroutine="GetPaginationEnd" />			
+				
+			<view-page name="WordGrid" />
+		</event-handler>
+		
+	</event-handlers>
+	
+	<page-views>
+	
+		<page-view name="WordList" page="/DisplayPages/admin/Words/WordList.cfm" />
+		<page-view name="WordGrid" page="/DisplayPages/admin/Words/WordGrid.cfm" />
+								
+	</page-views>
+
+</mach-ii>
+

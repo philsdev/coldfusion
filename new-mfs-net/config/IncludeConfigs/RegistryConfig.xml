@@ -1,0 +1,73 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Registry.Management" access="public">			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="RegistryManager" method="GetRegistry" resultKey="request.Registry"  />
+			<event-arg name="GridQuery" variable="request.Registry" />
+			<execute subroutine="GetPaginationEnd" />
+				
+			<view-page name="RegistryGrid" contentKey="request.RegistryGrid" />
+			
+			<notify listener="RegistryManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<notify listener="RegistryManager" method="GetDefaultSord" resultKey="request.DefaultSord" />			
+			<execute subroutine="GetSordBox" />
+			
+			<view-page name="RegistryList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>		
+							
+		<event-handler event="Admin.Registry.Search" access="public">					
+			<notify listener="RegistryManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="RegistryManager" method="GetRegistry" resultKey="request.Registry"  />
+			<event-arg name="GridQuery" variable="request.Registry" />
+			<execute subroutine="GetPaginationEnd" />			
+				
+			<view-page name="RegistryGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.Registry.Information" access="public">	
+			<notify listener="RegistryManager" method="GetRegistryDetails" resultKey="request.Registry"  />		
+		
+			<event-arg name="FieldName" value="IsApproved" />
+			<event-arg name="SelectedValue" variable="request.Registry.IsApproved" />
+			<notify listener="AdminManager" method="GetBooleanBox" resultKey="request.ApprovedBox" />
+			
+			<event-arg name="UrlStruct" variable="URL" />
+			<notify listener="AdminManager" method="GetSubmitButtons" resultKey="request.SubmitButtons" />
+			
+			<view-page name="RegistryForm" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>	
+		
+		<event-handler event="Admin.Registry.Submit" access="public">		
+			<notify listener="RegistryManager" method="UpdateRegistry" />		
+		</event-handler>
+		
+		<event-handler event="Admin.Registry.Delete" access="public">					
+			<notify listener="RegistryManager" method="DeleteRegistry" />		
+		</event-handler>
+		
+	</event-handlers>
+	
+	<page-views>
+	
+		<page-view name="RegistryList" page="/DisplayPages/admin/Registry/RegistryList.cfm" />
+		<page-view name="RegistryGrid" page="/DisplayPages/admin/Registry/RegistryGrid.cfm" />
+		<page-view name="RegistryForm" page="/DisplayPages/admin/Registry/RegistryForm.cfm" />
+								
+	</page-views>
+
+</mach-ii>
+

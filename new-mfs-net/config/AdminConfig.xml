@@ -1,0 +1,253 @@
+<mach-ii version="1.0">
+
+	<!-- PROPERTIES -->
+	<properties>
+		<!-- The defaultEvent will be the page that gets called when nothing is called -->
+		<property name="defaultEvent" value="Admin.Login" />
+		
+		<!-- the application root must be the name of the folder in wich the -->
+		<!-- site exists. -->
+		<property name="applicationRoot" value="/new-matthewfsheehan-net" />
+		<property name="eventParameter" value="event" />
+		<property name="parameterPrecedence" value="form" />
+		<property name="maxEvents" value="10" />
+		<property name="exceptionEvent" value="exception" />
+	</properties>
+
+	<!-- LISTENERS -->
+	<listeners>
+	
+		<listener name="AdminManager" type="new-matthewfsheehan-net.FunctionPages.Admin">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>		
+		<listener name="AdministratorManager" type="new-matthewfsheehan-net.FunctionPages.Administrators">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="AttributeManager" type="new-matthewfsheehan-net.FunctionPages.Attributes">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="CategoryManager" type="new-matthewfsheehan-net.FunctionPages.Categories">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="CustomerManager" type="new-matthewfsheehan-net.FunctionPages.Customer">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="CorporateManager" type="new-matthewfsheehan-net.FunctionPages.Corporate">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="EmailManager" type="new-matthewfsheehan-net.FunctionPages.Emails">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="FeatureManager" type="new-matthewfsheehan-net.FunctionPages.Features">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="GeographyManager" type="new-matthewfsheehan-net.FunctionPages.Geography">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ImageManager" type="new-matthewfsheehan-net.FunctionPages.Images">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>	
+		<listener name="LinkManager" type="new-matthewfsheehan-net.FunctionPages.Links">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>	
+		<listener name="OrderManager" type="new-matthewfsheehan-net.FunctionPages.Orders">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="OrderBillingManager" type="new-matthewfsheehan-net.FunctionPages.OrderBilling">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="OrderItemsManager" type="new-matthewfsheehan-net.FunctionPages.OrderItems">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="OrderShippingManager" type="new-matthewfsheehan-net.FunctionPages.OrderShipping">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="PageManager" type="new-matthewfsheehan-net.FunctionPages.Pages">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>		
+		<listener name="ProductManager" type="new-matthewfsheehan-net.FunctionPages.Products">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductOptionManager" type="new-matthewfsheehan-net.FunctionPages.ProductOptions">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductDescriptionManager" type="new-matthewfsheehan-net.FunctionPages.ProductDescriptions">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductImageManager" type="new-matthewfsheehan-net.FunctionPages.ProductImages">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductKeywordManager" type="new-matthewfsheehan-net.FunctionPages.ProductKeywords">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductReviewManager" type="new-matthewfsheehan-net.FunctionPages.ProductReviews">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductUpsellManager" type="new-matthewfsheehan-net.FunctionPages.ProductUpsells">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductVideoManager" type="new-matthewfsheehan-net.FunctionPages.ProductVideos">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductCategoryManager" type="new-matthewfsheehan-net.FunctionPages.ProductCategories">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>		
+		<listener name="PromotionManager" type="new-matthewfsheehan-net.FunctionPages.Promotions">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="RegistryManager" type="new-matthewfsheehan-net.FunctionPages.Registry">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ReportManager" type="new-matthewfsheehan-net.FunctionPages.Reports">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="TestimonialManager" type="new-matthewfsheehan-net.FunctionPages.Testimonials">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="VendorManager" type="new-matthewfsheehan-net.FunctionPages.Vendors">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="WordManager" type="new-matthewfsheehan-net.FunctionPages.Words">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		
+		
+	</listeners>
+	
+	<!-- INCLUDES -->
+	<includes>
+	
+		<include file="../config/IncludeConfigs/AdministratorConfig.xml" />
+		<include file="../config/IncludeConfigs/AttributeConfig.xml" />
+		<include file="../config/IncludeConfigs/CategoryConfig.xml" />
+		<include file="../config/IncludeConfigs/CorporateConfig.xml" />
+		<include file="../config/IncludeConfigs/CustomerConfig.xml" />
+		<include file="../config/IncludeConfigs/EmailConfig.xml" />
+		<include file="../config/IncludeConfigs/FeatureConfig.xml" />
+		<include file="../config/IncludeConfigs/OrderConfig.xml" />
+		<include file="../config/IncludeConfigs/PageConfig.xml" />
+		<include file="../config/IncludeConfigs/ProductConfig.xml" />
+		<include file="../config/IncludeConfigs/PromotionConfig.xml" />
+		<include file="../config/IncludeConfigs/ReportConfig.xml" />
+		<include file="../config/IncludeConfigs/RegistryConfig.xml" />
+		<include file="../config/IncludeConfigs/TestimonialConfig.xml" />
+		<include file="../config/IncludeConfigs/VendorConfig.xml" />
+		<include file="../config/IncludeConfigs/WordConfig.xml" />
+				
+	</includes>
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+			
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////   MAIN ADMINISTRATOR EVENTS   /////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<!-- Set the default event-handler -->
+		<event-handler event="Admin.Login">					
+			<view-page name="AdminLogin" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<!-- Event for handling the administrators Login -->
+		<event-handler event="Admin.Verify" access="public">
+			<event-arg name="InputValue" variable="Password" />
+			<notify listener="AdminManager" method="GetHashedValue" resultKey="request.HashedPassword"  />
+			<event-arg name="Password" variable="request.HashedPassword" />
+			<notify listener="AdminManager" method="VerifyLogin" />
+		</event-handler>
+		
+		<!-- Event for handling the administrators Logout -->
+		<event-handler event="Admin.Logout" access="public">
+			<notify listener="AdminManager" method="Logout" />
+		</event-handler>
+		
+		<!-- Event for displaying the admin hope page -->
+		<event-handler event="Admin.HomePage">			
+			<view-page name="AdminHome" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />			
+		</event-handler>
+									
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- //////////////////    EXCEPTION EVENTS    /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->							
+		<event-handler event="exception">
+			<view-page name="exception" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+	</event-handlers>
+	
+	<subroutines>		
+		<subroutine name="GetPaginationStart">
+			<notify listener="AdminManager" method="GetGridRows" resultKey="request.GridRows" />
+			<event-arg name="StartRow" variable="request.GridRows.StartRow" />
+			<event-arg name="EndRow" variable="request.GridRows.EndRow" />
+		</subroutine>
+		
+		<subroutine name="GetPaginationEnd">
+			<notify listener="AdminManager" method="GetGridTotals" resultKey="request.GridTotals" />
+			<event-arg name="RowsStruct" variable="request.GridRows" />			
+			<event-arg name="TotalsStruct" variable="request.GridTotals" />
+			<notify listener="AdminManager" method="GetListingPagination" resultKey="request.GridPagination" />
+			<notify listener="AdminManager" method="GetGridPagination" resultKey="request.GridPagination" />
+		</subroutine>
+		
+		<subroutine name="GetSortBox">
+			<event-arg name="SortOptionsArray" variable="request.SortOptions" />
+			<notify listener="AdminManager" method="GetSortOptionsBox" resultKey="request.SortBox" />	
+		</subroutine>
+		
+		<subroutine name="GetSortColumn">
+			<event-arg name="SortOptionsArray" variable="request.SortOptions" />			
+			<notify listener="AdminManager" method="GetSortColumn" resultKey="request.SortColumn" />
+			<event-arg name="sidx" variable="request.SortColumn" />
+		</subroutine>
+		
+		<subroutine name="GetSordBox">
+			<event-arg name="DefaultSord" variable="request.DefaultSord" />
+			<notify listener="AdminManager" method="GetSortOrder" resultKey="request.Sord" />
+			<event-arg name="Sord" variable="request.Sord" />
+			<notify listener="AdminManager" method="GetSortDirectionBox" resultKey="request.SordBox" />
+		</subroutine>
+	</subroutines>
+	
+	<!-- PAGE-VIEWS -->
+	<page-views>
+		<!-- Exception Page -->
+		<page-view name="exception" page="/DisplayPages/admin/exception.cfm" />
+		
+		<!-- Main Display Page -->
+		<page-view name="mainDisplayPage" page="/DisplayPages/Admin/MainDisplayPage.cfm" />	
+		
+		<!-- Sub-display Page to handle order tabs -->
+		<page-view name="orderDisplayPage" page="/DisplayPages/Admin/OrderDisplayPage.cfm" />
+		
+		<!-- Sub-display Page to handle product tabs -->
+		<page-view name="productDisplayPage" page="/DisplayPages/Admin/ProductDisplayPage.cfm" />	
+
+		<!-- Excel Display Page -->
+		<page-view name="excelDisplayPage" page="/DisplayPages/Admin/ExcelDisplayPage.cfm" />			
+		
+		<!-- Sub-display Page to handle attribute tabs -->
+		<page-view name="AttributeDisplayPage" page="/DisplayPages/Admin/AttributeDisplayPage.cfm" />
+		
+		<!-- Option Display Page -->
+		<page-view name="optionDisplayPage" page="/DisplayPages/Admin/OptionDisplayPage.cfm" />	
+		
+		<!-- Sub-display Page to handle Category tabs -->
+		<page-view name="CategoryDisplayPage" page="/DisplayPages/Admin/CategoryDisplayPage.cfm" />	
+		
+		<!-- Sub-display Page to handle Customer tabs -->
+		<page-view name="CustomerDisplayPage" page="/DisplayPages/Admin/CustomerDisplayPage.cfm" />	
+
+		<!-- Sub-display Page to handle Corporate tabs -->
+		<page-view name="CorporateDisplayPage" page="/DisplayPages/Admin/CorporateDisplayPage.cfm" />	
+
+		
+		<!-- Main Administrator Display Pages -->
+		<page-view name="AdminLogin" page="/DisplayPages/Admin/Login.cfm" />			
+		<page-view name="AdminHome" page="/DisplayPages/Admin/AdminHome.cfm" />	
+	</page-views>
+
+</mach-ii>

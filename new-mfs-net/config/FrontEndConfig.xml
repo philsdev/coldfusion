@@ -1,0 +1,752 @@
+<mach-ii version="1.5">
+
+	<!-- PROPERTIES -->
+	<properties>
+		<property name="defaultEvent" value="HomePage" />
+		<property name="applicationRoot" value="/new-matthewfsheehan-net" />
+		<property name="eventParameter" value="event" />
+		<property name="parameterPrecedence" value="form" />
+		<property name="maxEvents" value="20" />
+		<property name="exceptionEvent" value="exception" />
+		
+		<!-- Used for SES -->
+		<property name="urlBase" value="index.cfm" />
+		<property name="urlParseSES" value="false" />
+		<property name="urlDelimiters" value="/|/|/" />
+	</properties>
+
+	<!-- LISTENERS -->
+	<listeners>
+		<listener name="AccountManager" type="new-matthewfsheehan-net.FunctionPages.Account">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="AdminManager" type="new-matthewfsheehan-net.FunctionPages.Admin">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="AttributeManager" type="new-matthewfsheehan-net.FunctionPages.Attributes">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="CategoryManager" type="new-matthewfsheehan-net.FunctionPages.Categories">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>	
+		<listener name="CustomerManager" type="new-matthewfsheehan-net.FunctionPages.Customer">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="CorporateManager" type="new-matthewfsheehan-net.FunctionPages.Corporate">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="EmailManager" type="new-matthewfsheehan-net.FunctionPages.Emails">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>	
+		<listener name="FontManager" type="new-matthewfsheehan-net.FunctionPages.Fonts">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>	
+		<listener name="GeographyManager" type="new-matthewfsheehan-net.FunctionPages.Geography">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>	
+		<listener name="ImageManager" type="new-matthewfsheehan-net.FunctionPages.Images">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>	
+		<listener name="LinkManager" type="new-matthewfsheehan-net.FunctionPages.Links">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="NavigationManager" type="new-matthewfsheehan-net.FunctionPages.Navigation">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="OrderManager" type="new-matthewfsheehan-net.FunctionPages.Orders">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="OrderBillingManager" type="new-matthewfsheehan-net.FunctionPages.OrderBilling">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="OrderItemsManager" type="new-matthewfsheehan-net.FunctionPages.OrderItems">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="OrderShippingManager" type="new-matthewfsheehan-net.FunctionPages.OrderShipping">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="PageManager" type="new-matthewfsheehan-net.FunctionPages.Pages">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>	
+		<listener name="ProductManager" type="new-matthewfsheehan-net.FunctionPages.Products">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductDescriptionManager" type="new-matthewfsheehan-net.FunctionPages.ProductDescriptions">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductFeatureManager" type="new-matthewfsheehan-net.FunctionPages.ProductFeatures">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductImageManager" type="new-matthewfsheehan-net.FunctionPages.ProductImages">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductKeywordManager" type="new-matthewfsheehan-net.FunctionPages.ProductKeywords">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductOptionManager" type="new-matthewfsheehan-net.FunctionPages.ProductOptions">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductReviewManager" type="new-matthewfsheehan-net.FunctionPages.ProductReviews">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductUpsellManager" type="new-matthewfsheehan-net.FunctionPages.ProductUpsells">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ProductVideoManager" type="new-matthewfsheehan-net.FunctionPages.ProductVideos">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="RegistryManager" type="new-matthewfsheehan-net.FunctionPages.Registry">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="ShoppingCart" type="new-matthewfsheehan-net.FunctionPages.ShoppingCart">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="TestimonialManager" type="new-matthewfsheehan-net.FunctionPages.Testimonials">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+		<listener name="VendorManager" type="new-matthewfsheehan-net.FunctionPages.Vendors">
+			<invoker type="MachII.framework.invokers.EventArgsInvoker" />	
+		</listener>
+	</listeners>
+	
+	<!-- EVENT FILTERS -->
+	<event-filters>
+		<event-filter name="eventArgs" type="MachII.filters.EventArgsFilter" />		
+	</event-filters>
+	
+	<!-- INCLUDES -->
+	<includes />	
+
+	<event-handlers>
+	
+		<event-handler event="Homepage">		
+			<view-page name="HomePage" contentKey="request.content" />	
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Category.List">		
+			<notify listener="CategoryManager" method="GetCategoryDetails" resultKey="request.CategoryDetails" />
+			<event-arg name="InputQuery" variable="Request.CategoryDetails" />
+			<execute subroutine="VerifyAvailability" />
+			
+			<event-arg name="ParentID" variable="URL.CategoryID" />
+			<notify listener="CategoryManager" method="GetDisplayCategories" resultKey="request.Subcategories" />
+			
+			<event-arg name="CategoryID" variable="URL.CategoryID" />
+			<notify listener="VendorManager" method="GetDisplayVendors" resultKey="request.Vendors" />
+			
+			<!-- "Featured Products" -->
+			<event-arg name="ProductCategory" value="" />	
+			<event-arg name="ProductFeaturedCategory" variable="URL.CategoryID" />			
+			<event-arg name="PaginationIdentifier" value="featuredProductsNav" />
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="ProductManager" method="GetProducts" resultKey="request.CategoryFeaturedProducts" />		
+			<event-arg name="GridQuery" variable="request.CategoryFeaturedProducts" />
+			<execute subroutine="GetPaginationEnd" />
+			<view-page name="Viewlets.CategoryProductFeatures" contentKey="request.CategoryProductFeatureContent" />
+			
+			<!-- "Shop by Category" -->
+			<event-arg name="ProductCategory" variable="URL.CategoryID" />	
+			<event-arg name="ProductFeaturedCategory" value="" />				
+			<event-arg name="PaginationIdentifier" value="categoryProductsNav" />
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="ProductManager" method="GetProducts" resultKey="request.CategoryProducts" />		
+			<event-arg name="GridQuery" variable="request.CategoryProducts" />
+			<execute subroutine="GetPaginationEnd" />			
+			<view-page name="Viewlets.CategoryProducts" contentKey="request.CategoryProductContent" />
+			
+			<view-page name="CategoryList" contentKey="request.content" />	
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+	
+		<event-handler event="Product.Details">		
+			<notify listener="ProductManager" method="GetProductDetails" resultKey="request.ProductDetails" />
+			<event-arg name="InputQuery" variable="Request.ProductDetails" />
+			<execute subroutine="VerifyAvailability" />	
+			
+			<notify listener="NavigationManager" method="GetProductNavigationCategories" resultKey="request.ProductNavigationCategories" />
+			<notify listener="ProductDescriptionManager" method="GetProductDescriptions" resultKey="request.ProductDescriptions" />
+			<notify listener="ProductImageManager" method="GetProductImages" resultKey="request.ProductImages" />
+			<notify listener="ProductOptionManager" method="GetProductOptions" resultKey="request.ProductOptions" />			
+			<notify listener="FontManager" method="GetFonts" resultKey="request.Fonts"  />			
+			<notify listener="ProductReviewManager" method="GetProductReviewSummary" resultKey="request.ProductReviewSummary" />			
+			<event-arg name="PaginationIdentifier" value="productReviewsNav" />
+			<execute subroutine="GetPaginationStart" />
+			<notify listener="ProductReviewManager" method="GetProductReviews" resultKey="request.ProductReviews" />
+			<event-arg name="GridQuery" variable="request.ProductReviews" />
+			<execute subroutine="GetPaginationEnd" />
+			<view-page name="Viewlets.ProductReviews" contentKey="request.ProductReviewContent" />
+			
+			<notify listener="ProductUpsellManager" method="GetDisplayProductUpsells" resultKey="request.ProductUpsells" />
+			<notify listener="ProductVideoManager" method="GetProductVideos" resultKey="request.ProductVideos" />
+			
+			<view-page name="Viewlets.ProductOptions" contentKey="request.ProductOptionContent" />			
+			<view-page name="Viewlets.ProductUpsells" contentKey="request.ProductUpsellContent" />
+			<view-page name="ProductDetails" contentKey="request.content" />	
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Search.Results">
+			<event-arg name="PaginationIdentifier" value="searchProductsNav" />
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="ProductManager" method="GetProducts" resultKey="request.SearchProducts" />		
+			<event-arg name="GridQuery" variable="request.SearchProducts" />
+			<execute subroutine="GetPaginationEnd" />
+		
+			<view-page name="Viewlets.SearchResults" contentKey="request.SearchResultContent" />
+			<view-page name="SearchResults" contentKey="request.content" />	
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<!-- SHOPPING CART -->
+		<event-handler event="ShoppingCart.AddItem">
+			<notify listener="ShoppingCart" method="AddItem" />
+			<notify listener="ShoppingCart" method="RefreshCartTotals" />
+		
+			<event-arg name="DestinationUrl" value="/shopping-cart.html" />
+			<execute subroutine="GetUrl" />	
+		</event-handler>
+		
+		<event-handler event="ShoppingCart.UpdateItem">
+			<notify listener="ShoppingCart" method="UpdateItemQuantity" />
+			<notify listener="ShoppingCart" method="RefreshCartTotals" />
+		
+			<event-arg name="DestinationUrl" value="/shopping-cart.html" />
+			<execute subroutine="GetUrl" />
+		</event-handler>
+		
+		<event-handler event="ShoppingCart.RemoveItem">
+			<notify listener="ShoppingCart" method="RemoveItem" />
+			<notify listener="ShoppingCart" method="RefreshCartTotals" />
+			
+			<event-arg name="DestinationUrl" value="/shopping-cart.html" />
+			<execute subroutine="GetUrl" />
+		</event-handler>
+		
+		<event-handler event="ShoppingCart.List">
+			<notify listener="ShoppingCart" method="GetItems" resultKey="request.CartItems" />
+			<notify listener="ShoppingCart" method="GetTotals" resultKey="request.CartTotals" />
+			
+			<view-page name="ShoppingCart" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="ShoppingCart.Proceed">			
+			<view-page name="ShoppingCartProceedOptions" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="ShoppingCart.Checkout">
+			<notify listener="ShoppingCart" method="GetShippingInfo" resultKey="request.ShippingInfo" />
+			<notify listener="ShoppingCart" method="GetBillingInfo" resultKey="request.BillingInfo" />
+			
+			<notify listener="GeographyManager" method="GetStates" resultKey="request.States" />
+			<notify listener="GeographyManager" method="GetCountries" resultKey="request.Countries" />
+			
+			<event-arg name="FieldName" value="ShipState" />
+			<event-arg name="FieldID" value="ShipState" />
+			<event-arg name="DataQuery" variable="request.States" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="request.ShippingInfo.State" />
+			<event-arg name="CssClass" value="textInput stateField" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.ShipStateBox" />
+			
+			<event-arg name="FieldName" value="ShipCountry" />
+			<event-arg name="FieldID" value="ShipCountry" />
+			<event-arg name="DataQuery" variable="request.Countries" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="request.ShippingInfo.Country" />
+			<event-arg name="CssClass" value="textInput countryField" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.ShipCountryBox" />
+			
+			<event-arg name="FieldName" value="BillState" />
+			<event-arg name="FieldID" value="BillState" />
+			<event-arg name="DataQuery" variable="request.States" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="request.BillingInfo.State" />
+			<event-arg name="CssClass" value="textInput stateField" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.BillStateBox" />
+			
+			<event-arg name="FieldName" value="BillCountry" />
+			<event-arg name="FieldID" value="BillCountry" />
+			<event-arg name="DataQuery" variable="request.Countries" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="request.BillingInfo.Country" />
+			<event-arg name="CssClass" value="textInput countryField" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.BillCountryBox" />
+			
+			<view-page name="Checkout" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="ShoppingCart.Checkout.Submit">
+			<notify listener="ShoppingCart" method="UpdateInfo"  />
+			
+			<event-arg name="DestinationUrl" value="/review-order.html" />
+			<execute subroutine="GetUrl" />
+		</event-handler>
+		
+		<event-handler event="ShoppingCart.Review">
+			<notify listener="ShoppingCart" method="GetItems" resultKey="request.CartItems" />
+			<notify listener="ShoppingCart" method="GetTotals" resultKey="request.CartTotals" />
+			
+			<view-page name="ReviewOrder" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Product.Review.Form">
+			<notify listener="ProductManager" method="GetProductDetails" resultKey="request.ProductDetails" />
+			<view-page name="ReviewForm" contentKey="request.content" />
+			<view-page name="fancyDisplayPage" />
+		</event-handler>
+		
+		
+		<event-handler event="Testimonial.Form">
+			<event-arg name="TopCount" value="10" />
+			<notify listener="TestimonialManager" method="GetDisplayTestimonials" resultKey="request.Testimonials" />
+			<view-page name="TestimonialForm" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Testimonial.Thanks">
+			<notify listener="TestimonialManager" method="UpdateTestimonial" />
+
+			<event-arg name="TopCount" value="10" />
+			 <notify listener="TestimonialManager" method="GetDisplayTestimonials" resultKey="request.Testimonials" />
+			<view-page name="TestimonialForm" contentKey="request.pageContent" />
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" /> 
+		</event-handler>
+		
+		
+		<!-- ACCOUNT LOGIN INFO -->
+		
+		<event-handler event="Customer.Profile.Login" access="public">	
+			<view-page name="LoginForm" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Customer.Profile.Logout" access="public">	
+			<notify listener="AccountManager" method="Logout" />	
+			<view-page name="Logout" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+			
+		<!-- CUSTOMER ACCOUNT INFO -->
+		
+		<event-handler event="Customer.Profile.Account" access="public">	
+			<view-page name="CustomerInfo" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Customer.Profile.Account.Info" access="public">	
+		
+			<event-arg name="UserType" variable="SESSION.User.UserType" />
+			<event-arg name="UserID" variable="SESSION.User.UserID" />
+			<notify listener="AccountManager" method="GetAccountInfo" resultKey="request.Customer" />
+		
+			<notify listener="GeographyManager" method="GetStates" resultKey="request.States" />
+			<notify listener="GeographyManager" method="GetCountries" resultKey="request.Countries" />
+			
+			<event-arg name="FieldName" value="ShipState" />
+			<event-arg name="FieldID" value="ShipState" />
+			<event-arg name="DataQuery" variable="request.States" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="request.Customer.ShipState" />
+			<event-arg name="CssClass" value="textInput stateField" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.ShipStateBox" />
+			
+			<event-arg name="FieldName" value="ShipCountry" />
+			<event-arg name="FieldID" value="ShipCountry" />
+			<event-arg name="DataQuery" variable="request.Countries" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="request.Customer.ShipCountry" />
+			<event-arg name="CssClass" value="textInput countryField" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.ShipCountryBox" />
+			
+			<event-arg name="FieldName" value="BillState" />
+			<event-arg name="FieldID" value="BillState" />
+			<event-arg name="DataQuery" variable="request.States" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="request.Customer.BillState" />
+			<event-arg name="CssClass" value="textInput stateField" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.BillStateBox" />
+			
+			<event-arg name="FieldName" value="BillCountry" />
+			<event-arg name="FieldID" value="BillCountry" />
+			<event-arg name="DataQuery" variable="request.Countries" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="request.Customer.BillCountry" />
+			<event-arg name="CssClass" value="textInput countryField" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.BillCountryBox" />
+			
+			<view-page name="CustomerInfoForm" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Customer.Profile.Account.Submit" access="public">	
+			<notify listener="CustomerManager" method="UpdateCustomerInfo" />		
+		</event-handler>
+		
+		<event-handler event="Customer.Profile.Account.TrackOrders" access="public">	
+			<event-arg name="UserID" variable="SESSION.User.UserID" />
+			<event-arg name="CurrentOrder" value="1" />
+			<notify listener="OrderManager" method="GetOrdersByAccount" resultKey="request.Orders" />
+			<view-page name="TrackOrders" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Customer.Profile.Account.TrackOrders.Details" access="public">	
+			<event-arg name="OrderID" variable="form.OrderID" />
+			<notify listener="OrderManager" method="GetOrderDetails" resultKey="request.OrderDetails" />
+			
+			<event-arg name="OrderID" variable="form.OrderID" />
+			<notify listener="OrderItemsManager" method="GetOrderItems" resultKey="request.OrderItems" />
+
+			<event-arg name="OrderID" variable="form.OrderID" />
+			<notify listener="OrderBillingManager" method="GetOrderBillingDetails" resultKey="request.OrderBilling" />
+
+			<event-arg name="OrderID" variable="form.OrderID" />
+			<notify listener="OrderShippingManager" method="GetOrderShippingDetails" resultKey="request.OrderShipping" />
+			
+			<view-page name="TrackOrderDetails" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		
+		<event-handler event="Customer.Profile.Account.ViewOrders" access="public">	
+			<event-arg name="UserID" variable="SESSION.User.UserID" />
+			<event-arg name="CurrentOrder" value="0" />
+			<notify listener="OrderManager" method="GetOrdersByAccount" resultKey="request.Orders" />
+			
+			<view-page name="TrackOrders" contentKey="request.pageContent" />	
+			<view-page name="contentDisplayPage" contentKey="request.content" />	
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		 <!-- CUSTOMER REGISTRY/WISHLIST INFO -->
+		 
+		<event-handler event="Customer.Profile.Account.Registry" access="public">	
+			<event-arg name="UserID" variable="SESSION.User.UserID" />
+			<notify listener="RegistryManager" method="GetRegistryByAccount" resultKey="request.Registry"  />		
+			<view-page name="Registry" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Customer.Profile.Account.Registry.Search" access="public">	
+			
+			<notify listener="RegistryManager" method="GetRegistry" resultKey="request.RegistryList"  />		
+			
+			<event-arg name="UserID" variable="SESSION.User.UserID" />
+			<notify listener="RegistryManager" method="GetRegistryByAccount" resultKey="request.Registry"  />		
+			
+			<view-page name="Registry" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Customer.Profile.Account.Registry.Details" access="public">	
+			
+			<event-arg name="RegistryID"  variable="form.registry_id" />
+			<notify listener="RegistryManager" method="GetRegistryDetails" resultKey="request.RegistryDetails"  />		
+			
+			<notify listener="RegistryManager" method="GetRegistryItems" resultKey="request.RegistryItems"  />		
+					
+			<view-page name="RegistryItems" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		
+		<event-handler event="Customer.Profile.Account.Wishlist" access="public">	
+			<view-page name="CustomerInfoForm" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+	
+		
+		
+		<!-- CORPORATE ACCOUNT INFO -->
+		
+		<event-handler event="Corporate.Profile.Account" access="public">	
+			<view-page name="CorporateInfoForm" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Corporate.Profile.Account.Info" access="public">	
+			<view-page name="CustomerInfoForm" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		
+		<event-handler event="Corporate.Profile.Account.TrackOrders" access="public">	
+			<view-page name="CustomerInfoForm" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Corporate.Profile.Account.ViewOrders" access="public">	
+			<view-page name="CustomerInfoForm" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Corporate.Profile.Account.Registry" access="public">	
+			<view-page name="CustomerInfoForm" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Corporate.Profile.Account.Wishlist" access="public">	
+			<view-page name="CustomerInfoForm" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+	
+		
+		<!-- AUTHENTICATION -->
+		
+		<event-handler event="Customer.Profile.VerifyLogin" access="public">	
+			<notify listener="AccountManager" method="VerifyLogin" />		
+		</event-handler>
+		
+		<event-handler event="Corporate.Profile.CheckUsername" access="public">	
+			<notify listener="CorporateManager" method="GetUsernameAvailability" />		
+		</event-handler>
+		
+		
+		<!-- CONTENT MANAGEMENT -->
+		
+		<event-handler event="PageDetails">
+			<notify listener="PageManager" method="GetPageDetail" resultKey="request.PageDetails"  />
+			<event-arg name="MetaTitle" variable="Request.PageDetails.MetaTitle" />
+			<notify listener="PageManager" method="GetPageMetaTitle" resultKey="request.Meta.Title"  />
+			<event-arg name="MetaDescription" variable="Request.PageDetails.MetaDescription" />
+			<notify listener="PageManager" method="GetPageMetaDescription" resultKey="request.Meta.Description"  />
+			<view-page name="PageDetails" contentKey="request.pageContent" />
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="Unavailable">
+			<view-page name="Unavailable" contentKey="request.pageContent" />
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		
+		<event-handler event="ContactUs">
+			<view-page name="ContactUsForm" contentKey="request.pageContent" />
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<event-handler event="ContactUs.Submit">
+			<notify listener="AdminManager" method="SendContactForm" />	
+		</event-handler>
+				
+		
+		<event-handler event="Sitemap">
+			<view-page name="Sitemap" contentKey="request.pageContent" />
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />	
+		</event-handler>
+		
+		<!-- AJAX -->
+	
+		<event-handler event="AJAX.GetCategoryFeaturedProducts">			
+			<event-arg name="PaginationIdentifier" value="featuredProductsNav" />
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="ProductManager" method="GetProducts" resultKey="request.CategoryFeaturedProducts" />		
+			<event-arg name="GridQuery" variable="request.CategoryFeaturedProducts" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="Viewlets.CategoryProductFeatures" contentKey="request.Content" />			
+			<view-page name="blankPage" />	
+		</event-handler>
+		
+		<event-handler event="AJAX.GetCategoryProducts">			
+			<event-arg name="PaginationIdentifier" value="categoryProductsNav" />
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="ProductManager" method="GetProducts" resultKey="request.CategoryProducts" />		
+			<event-arg name="GridQuery" variable="request.CategoryProducts" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="Viewlets.CategoryProducts" contentKey="request.Content" />			
+			<view-page name="blankPage" />	
+		</event-handler>
+		
+		<event-handler event="AJAX.GetProductReviews">			
+			<notify listener="ProductReviewManager" method="GetProductReviewSummary" resultKey="request.ProductReviewSummary" />
+			<event-arg name="PaginationIdentifier" value="productReviewsNav" />
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="ProductReviewManager" method="GetProductReviews" resultKey="request.ProductReviews" />		
+			<event-arg name="GridQuery" variable="request.ProductReviews" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="Viewlets.ProductReviews" contentKey="request.Content" />			
+			<view-page name="blankPage" />	
+		</event-handler>
+		
+		<event-handler event="AJAX.GetSearchResults">			
+			<event-arg name="PaginationIdentifier" value="searchProductsNav" />
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="ProductManager" method="GetProducts" resultKey="request.SearchProducts" />		
+			<event-arg name="GridQuery" variable="request.SearchProducts" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="Viewlets.SearchResults" contentKey="request.Content" />			
+			<view-page name="blankPage" />	
+		</event-handler>
+		
+		<event-handler event="AJAX.EmailListSubscribe">		
+			<notify listener="EmailManager" method="Subscribe" />
+			<view-page name="blankPage" />	
+		</event-handler>
+		
+		<event-handler event="AJAX.EmailListUnsubscribe">						
+			<view-page name="blankPage" />	
+		</event-handler>
+	
+		
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- //////////////////       ERROR EVENTS       ///////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="ErrorPage">
+			<view-page name="ErrorPage" contentKey="request.content" />			
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- //////////////////       EXCEPTION EVENTS       ///////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="exception">
+			<view-page name="exception" contentKey="request.pageContent" />			
+			<view-page name="contentDisplayPage" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+			
+		</event-handler>
+			
+	</event-handlers>
+	
+	<subroutines>
+	
+		<subroutine name="VerifyAvailability">
+			<notify listener="AdminManager" method="VerifyAvailability" />
+		</subroutine>
+		
+		<subroutine name="GetPaginationStart">
+			<notify listener="AdminManager" method="GetGridRows" resultKey="request.GridRows" />
+			<event-arg name="StartRow" variable="request.GridRows.StartRow" />
+			<event-arg name="EndRow" variable="request.GridRows.EndRow" />
+		</subroutine>
+		
+		<subroutine name="GetPaginationEnd">
+			<notify listener="AdminManager" method="GetGridTotals" resultKey="request.GridTotals" />
+			<event-arg name="TotalsStruct" variable="request.GridTotals" />
+			<notify listener="AdminManager" method="GetListingPagination" resultKey="request.GridPagination" />
+			<notify listener="AdminManager" method="GetRowsFoundLabel" resultKey="request.RowsFoundLabel" />
+		</subroutine>
+				
+		<subroutine name="GetUrl">
+			<notify listener="LinkManager" method="GetUrl" />
+		</subroutine>
+		
+	</subroutines>
+	
+	<!-- PAGE-VIEWS -->
+	<page-views>
+			
+		<!-- MAIN DISPLAY PAGES -->
+		<page-view name="mainDisplayPage" page="/DisplayPages/MainDisplayPage.cfm" />
+		<page-view name="contentDisplayPage" page="/DisplayPages/ContentDisplayPage.cfm" />
+		<page-view name="fancyDisplayPage" page="/DisplayPages/FancyDisplayPage.cfm" />
+		<page-view name="blankPage" page="/DisplayPages/BlankPage.cfm" />
+		
+		<!-- VIEWS -->
+		<page-view name="HomePage" page="/DisplayPages/Views/HomePage.cfm" />		
+		<page-view name="ProductDetails" page="/DisplayPages/Views/ProductDetails.cfm" />		
+		<page-view name="CategoryList" page="/DisplayPages/Views/CategoryList.cfm" />	
+		<page-view name="Checkout" page="/DisplayPages/Views/Checkout.cfm" />
+		<page-view name="ShoppingCart" page="/DisplayPages/Views/ShoppingCart.cfm" />
+		<page-view name="ShoppingCartProceedOptions" page="/DisplayPages/Views/ShoppingCartProceedOptions.cfm" />
+		<page-view name="ReviewOrder" page="/DisplayPages/Views/ReviewOrder.cfm" />
+
+		<!-- Customer Account Pages -->		
+		<page-view name="TrackOrders" page="/DisplayPages/Views/TrackOrders.cfm" />
+		<page-view name="TrackOrderDetails" page="/DisplayPages/Views/TrackOrderDetails.cfm" />
+		<page-view name="Registry" page="/DisplayPages/Views/Registry.cfm" />
+		<page-view name="RegistryItems" page="/DisplayPages/Views/RegistryItems.cfm" />
+		
+				
+		<page-view name="SearchResults" page="/DisplayPages/Views/SearchResults.cfm" />
+		<page-view name="ContactUsForm" page="/DisplayPages/Views/ContactUsForm.cfm" />
+		<page-view name="ReviewForm" page="/DisplayPages/Views/ReviewForm.cfm" />
+		<page-view name="Map" page="/DisplayPages/Views/Map.cfm" />
+		<page-view name="AdPlacement" page="/DisplayPages/Views/AdPlacement.cfm" />
+		<page-view name="PageDetails" page="/DisplayPages/Views/PageDetails.cfm" />
+		<page-view name="Unavailable" page="/DisplayPages/Views/Unavailable.cfm" />
+		<page-view name="Sitemap" page="/DisplayPages/Views/Sitemap.cfm" />
+		<page-view name="TestimonialForm" page="/DisplayPages/Views/TestimonialForm.cfm" />
+		<page-view name="LoginForm" page="/DisplayPages/Views/LoginForm.cfm" />
+		<page-view name="Logout" page="/DisplayPages/Views/Logout.cfm" />
+		
+		<page-view name="CustomerInfo" page="/DisplayPages/Views/CustomerInfo.cfm" />
+		<page-view name="CustomerInfoForm" page="/DisplayPages/Views/CustomerInfoForm.cfm" />
+		
+		<page-view name="CorporateInfoForm" page="/DisplayPages/Views/CorporateInfoForm.cfm" />
+		
+		
+		<!-- VIEWLETS -->
+		<page-view name="Viewlets.Navigation" page="/DisplayPages/Views/Viewlets/Navigation.cfm" />
+		<page-view name="Viewlets.FooterNavigation" page="/DisplayPages/Views/Viewlets/FooterNavigation.cfm" />		
+		<page-view name="Viewlets.FooterPages" page="/DisplayPages/Views/Viewlets/FooterPages.cfm" />
+		<page-view name="Viewlets.CategoryFeatures" page="/DisplayPages/Views/Viewlets/CategoryFeatures.cfm" />
+		<page-view name="Viewlets.ProductFeatures" page="/DisplayPages/Views/Viewlets/ProductFeatures.cfm" />
+		<page-view name="Viewlets.ProductOptions" page="/DisplayPages/Views/Viewlets/ProductOptions.cfm" />
+		<page-view name="Viewlets.ProductReviews" page="/DisplayPages/Views/Viewlets/ProductReviews.cfm" />
+		<page-view name="Viewlets.ProductUpsells" page="/DisplayPages/Views/Viewlets/ProductUpsells.cfm" />
+		<page-view name="Viewlets.CategoryProductFeatures" page="/DisplayPages/Views/Viewlets/CategoryProductFeatures.cfm" />
+		<page-view name="Viewlets.CategoryProducts" page="/DisplayPages/Views/Viewlets/CategoryProducts.cfm" />
+		<page-view name="Viewlets.Testimonials" page="/DisplayPages/Views/Viewlets/Testimonials.cfm" />
+		<page-view name="Viewlets.SearchResults" page="/DisplayPages/Views/Viewlets/SearchResults.cfm" />
+		
+		<!-- LINKS -->
+		<!-- page-view name="Links.Account" page="/DisplayPages/Views/Links/Account.cfm" / -->
+		
+		<!-- OTHER -->
+		<page-view name="ErrorPage" page="/DisplayPages/ErrorPage.cfm" />
+		<page-view name="exception" page="/DisplayPages/Custom404.cfm" />
+		
+		
+		
+	</page-views>
+	
+	<!-- PLUGINS -->
+	<plugins>
+	</plugins>
+
+</mach-ii>
+

@@ -1,0 +1,71 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Vendor.Management" access="public">			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="VendorManager" method="GetVendors" resultKey="request.Vendors"  />
+			<event-arg name="GridQuery" variable="request.Vendors" />
+			<execute subroutine="GetPaginationEnd" />
+				
+			<view-page name="VendorGrid" contentKey="request.VendorGrid" />
+			
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />
+		
+			<notify listener="VendorManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<notify listener="VendorManager" method="GetDefaultSord" resultKey="request.DefaultSord" />			
+			<execute subroutine="GetSordBox" />
+			
+			<view-page name="VendorList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>		
+							
+		<event-handler event="Admin.Vendor.Search" access="public">					
+			<notify listener="VendorManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="VendorManager" method="GetVendors" resultKey="request.Vendors"  />
+			<event-arg name="GridQuery" variable="request.Vendors" />
+			<execute subroutine="GetPaginationEnd" />			
+				
+			<view-page name="VendorGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.Vendor.Information" access="public">	
+			<notify listener="VendorManager" method="GetVendorDetails" resultKey="request.Vendor"  />				
+			<event-arg name="SelectedValue" variable="request.Vendor.VendorStatus" />		
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />
+			<event-arg name="UrlStruct" variable="URL" />
+			<notify listener="AdminManager" method="GetSubmitButtons" resultKey="request.SubmitButtons" />
+			<view-page name="VendorForm" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>	
+		
+		<event-handler event="Admin.Vendor.Submit" access="public">		
+			<notify listener="VendorManager" method="UpdateVendor" />		
+		</event-handler>
+		
+		<event-handler event="Admin.Vendor.Delete" access="public">					
+			<notify listener="VendorManager" method="DeleteVendor" />		
+		</event-handler>
+		
+	</event-handlers>
+	
+	<page-views>
+	
+		<page-view name="VendorList" page="/DisplayPages/admin/Vendors/VendorList.cfm" />
+		<page-view name="VendorGrid" page="/DisplayPages/admin/Vendors/VendorGrid.cfm" />
+		<page-view name="VendorForm" page="/DisplayPages/admin/Vendors/VendorForm.cfm" />
+								
+	</page-views>
+
+</mach-ii>
+

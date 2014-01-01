@@ -1,0 +1,104 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Email.Management" access="public">
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="EmailManager" method="GetEmails" resultKey="request.Emails"  />
+			<event-arg name="GridQuery" variable="request.Emails" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="EmailGrid" contentKey="request.EmailGrid" />
+						
+			<notify listener="EmailManager" method="GetEmailSources" resultKey="request.EmailSources" />
+			<event-arg name="FieldName" value="EmailSource" />
+			<event-arg name="FieldID" value="EmailSourceOptions" />
+			<event-arg name="DataQuery" variable="request.EmailSources" />
+			<event-arg name="QueryIDColumn" value="Email_Source" />
+			<event-arg name="QueryLabelColumn" value="Email_Source" />
+			<event-arg name="SelectedValue" variable="" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.SourceBox" />			
+			
+			<event-arg name="FieldName" value="IsSubscribed" />
+			<notify listener="AdminManager" method="GetBooleanBox" resultKey="request.IsSubscribedBox" />
+			
+			<notify listener="EmailManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<notify listener="EmailManager" method="GetDefaultSord" resultKey="request.DefaultSord" />			
+			<execute subroutine="GetSordBox" />
+			
+			<view-page name="EmailList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Admin.Email.Search" access="public">		
+			<notify listener="EmailManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />	
+
+			<notify listener="EmailManager" method="GetEmails" resultKey="request.Emails"  />
+			<event-arg name="GridQuery" variable="request.Emails" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="EmailGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.Email.Refresh" access="public">		
+			<notify listener="EmailManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />	
+			
+			<event-arg name="EndRow" variable="url.EndRow" />
+			<notify listener="EmailManager" method="GetEmails" resultKey="request.Emails"  />
+			<event-arg name="GridQuery" variable="request.Emails" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="EmailGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.Email.Information" access="public">		
+			<notify listener="EmailManager" method="GetEmailDetails" resultKey="request.Email" />
+			
+			<event-arg name="FieldName" value="IsSubscribed" />
+			<event-arg name="SelectedValue" variable="request.Email.Email_subscribed" />
+			<notify listener="AdminManager" method="GetBooleanBox" resultKey="request.IsSubscribedBox" />
+			
+			<event-arg name="UrlStruct" variable="URL" />
+			<notify listener="AdminManager" method="GetSubmitButtons" resultKey="request.SubmitButtons" />
+			
+			<view-page name="EmailForm" contentKey="request.content" />		
+			<view-page name="mainDisplayPage" />			
+		</event-handler>
+		
+		<event-handler event="Admin.Email.Submit" access="public">					
+			<notify listener="EmailManager" method="UpdateEmail" />		
+		</event-handler>
+		
+		<event-handler event="Admin.Email.Delete" access="public">					
+			<notify listener="EmailManager" method="DeleteEmail" />		
+		</event-handler>
+		
+		<event-handler event="Admin.Email.CSV" access="public">		
+			<notify listener="EmailManager" method="BuildEmailCSV" />	
+		</event-handler>
+		
+	</event-handlers>
+	
+	<!-- PAGE-VIEWS -->
+	<page-views>
+		
+		<page-view name="EmailList" page="/DisplayPages/admin/Emails/EmailList.cfm" />
+		<page-view name="EmailGrid" page="/DisplayPages/admin/Emails/EmailGrid.cfm" />
+		<page-view name="EmailForm" page="/DisplayPages/admin/Emails/EmailForm.cfm" />					
+						
+	</page-views>
+
+</mach-ii>

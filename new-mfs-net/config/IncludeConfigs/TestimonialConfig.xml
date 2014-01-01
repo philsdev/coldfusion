@@ -1,0 +1,76 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Testimonial.Management" access="public">			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="TestimonialManager" method="GetTestimonials" resultKey="request.Testimonials"  />
+			<event-arg name="GridQuery" variable="request.Testimonials" />
+			<execute subroutine="GetPaginationEnd" />
+				
+			<view-page name="TestimonialGrid" contentKey="request.TestimonialGrid" />
+			
+			<event-arg name="FieldName" value="IsApproved" />
+			<notify listener="AdminManager" method="GetBooleanBox" resultKey="request.ApprovedBox" />
+		
+			<notify listener="TestimonialManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<notify listener="TestimonialManager" method="GetDefaultSord" resultKey="request.DefaultSord" />			
+			<execute subroutine="GetSordBox" />
+			
+			<view-page name="TestimonialList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>		
+							
+		<event-handler event="Admin.Testimonial.Search" access="public">					
+			<notify listener="TestimonialManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="TestimonialManager" method="GetTestimonials" resultKey="request.Testimonials"  />
+			<event-arg name="GridQuery" variable="request.Testimonials" />
+			<execute subroutine="GetPaginationEnd" />			
+				
+			<view-page name="TestimonialGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.Testimonial.Information" access="public">	
+			<notify listener="TestimonialManager" method="GetTestimonialDetails" resultKey="request.Testimonial"  />		
+		
+			<event-arg name="FieldName" value="IsApproved" />
+			<event-arg name="SelectedValue" variable="request.Testimonial.IsApproved" />
+			<notify listener="AdminManager" method="GetBooleanBox" resultKey="request.ApprovedBox" />
+			
+			<event-arg name="UrlStruct" variable="URL" />
+			<notify listener="AdminManager" method="GetSubmitButtons" resultKey="request.SubmitButtons" />
+			
+			<view-page name="TestimonialForm" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>	
+		
+		<event-handler event="Admin.Testimonial.Submit" access="public">		
+			<notify listener="TestimonialManager" method="UpdateTestimonial" />		
+		</event-handler>
+		
+		<event-handler event="Admin.Testimonial.Delete" access="public">					
+			<notify listener="TestimonialManager" method="DeleteTestimonial" />		
+		</event-handler>
+		
+	</event-handlers>
+	
+	<page-views>
+	
+		<page-view name="TestimonialList" page="/DisplayPages/admin/Testimonials/TestimonialList.cfm" />
+		<page-view name="TestimonialGrid" page="/DisplayPages/admin/Testimonials/TestimonialGrid.cfm" />
+		<page-view name="TestimonialForm" page="/DisplayPages/admin/Testimonials/TestimonialForm.cfm" />
+								
+	</page-views>
+
+</mach-ii>
+
