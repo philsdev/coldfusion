@@ -1,0 +1,71 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Email.Management" access="public">
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="EmailManager" method="GetEmails" resultKey="request.Emails"  />
+			<event-arg name="GridQuery" variable="request.Emails" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="EmailGrid" contentKey="request.EmailGrid" />
+						
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />	
+			
+			<notify listener="EmailManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<view-page name="EmailList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Admin.Email.Search" access="public">		
+			<notify listener="EmailManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="EmailManager" method="GetEmails" resultKey="request.Emails"  />
+			<event-arg name="GridQuery" variable="request.Emails" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="EmailGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.Email.Information" access="public">		
+			<notify listener="EmailManager" method="GetEmailDetails" resultKey="request.Email" />
+			
+			<event-arg name="SelectedValue" variable="request.Email.Status" />
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />
+			
+			<event-arg name="UrlStruct" variable="URL" />
+			<notify listener="AdminManager" method="GetSubmitButtons" resultKey="request.SubmitButtons" />
+			
+			<view-page name="EmailForm" contentKey="request.content" />		
+			<view-page name="mainDisplayPage" />			
+		</event-handler>
+		
+		<event-handler event="Admin.Email.Submit" access="public">					
+			<notify listener="EmailManager" method="UpdateEmail" />		
+		</event-handler>
+		
+		<event-handler event="Admin.Email.Delete" access="public">					
+			<notify listener="EmailManager" method="DeleteEmail" />		
+		</event-handler>
+		
+	</event-handlers>
+	
+	<!-- PAGE-VIEWS -->
+	<page-views>
+		
+		<page-view name="EmailList" page="/DisplayPages/admin/Emails/EmailList.cfm" />
+		<page-view name="EmailGrid" page="/DisplayPages/admin/Emails/EmailGrid.cfm" />
+		<page-view name="EmailForm" page="/DisplayPages/admin/Emails/EmailForm.cfm" />					
+						
+	</page-views>
+
+</mach-ii>

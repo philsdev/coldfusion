@@ -1,0 +1,22 @@
+
+
+
+User-agent: *
+Disallow: /favicon.ico
+Disallow: /FrontEndSettings.cfm
+Disallow: /application.cfm
+Disallow: /admin/
+Disallow: /Ajax/
+Disallow: /css/
+Disallow: /config/
+Disallow: /fckeditor/
+Disallow: /FunctionPages/
+Disallow: /images/
+Disallow: /Spry/
+Disallow: /Javascript/
+Disallow: /sifr/
+Disallow: /videos/
+Disallow: /includes/
+Disallow: /DisplayPages/admin/
+Disallow: /DisplayPages/DatePicker/
+Disallow: /DisplayPages/PromotionDatePicker/

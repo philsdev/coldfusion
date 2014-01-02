@@ -1,0 +1,9 @@
+#account-tabs.ui-widget-content{ border:0; padding:0;}
+#account-tabs .ui-tabs-panel { padding:0;}
+#account-tabs .ui-widget-header { background-image:none; background-color:transparent; border:0; border-bottom:1px solid #000; }
+#account-tabs .ui-widget-content a { color:;}
+#account-tabs .ui-widget { font-size:inherit}
+#account-tabs .ui-widget .ui-widget{font-size:inherit }
+#account-tabs li.ui-state-default{ background-image:none; background-color:#EFB52C; border:1px solid #000; border-bottom:0}
+#account-tabs li.ui-state-active{ background-color:#fff;}
+#account-tabs li.ui-state-default a{ color:#000;}

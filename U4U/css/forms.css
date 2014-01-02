@@ -1,0 +1,222 @@
+/* -----------------------------------------------------------------------
+
+ RMSforms CSS Forms Framework 0.5
+ http://rmsjr.com
+
+   * Copyright (c) 2009-Present.
+
+----------------------------------------------------------------------- */
+
+
+/* CONTAINING DIV */
+.formContainer{ overflow:hidden; height:1%;}
+
+/* GLOBALS */
+fieldset{ margin-bottom:40px; display:block; } /*optional elememt */ 
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+										/* BASE FORM CLASS */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+.form  em{color:#FF0000;}
+.form { margin:0 0 0 0; padding:0px; list-style:none;}
+.form ul{ padding:0; overflow:hidden; height:1%; list-style:none; }
+.form label{ width:120px; padding:3px 5px 3px 0px; float:left; display:inline; }
+.form li{margin:3px 0 0 0;  padding-bottom:3px; width:100%; overflow:hidden; }
+.form li ul li{ border-bottom:0px solid #ff0000;}
+.form input{ float:left; display:inline; line-height:100%;}
+.form select{ float:left; display:inline;}
+.form textarea{ float:left; display:inline;}
+.form input[type='radio'] { border:0px; }
+.form input[type='checkbox'] { border:0px; }
+.form li + input{ margin:0; width:200px;}
+ul.form li{ width:100%;}
+ul.form li li{ width:auto;}
+
+
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+										/* FORM MODIFIERS */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/*
+All of the modifier classes should be applied to form uls and are used to present the structure: <li><label></label><input/></li>.
+Each letter represented in the class name represents the orientation of the li - label - input elements respectively.
+
+h = horizontal block element (floated left)
+v = vertical block element 
+i = inline element
+
+for example, the class:.hvv  =  [LI:Horizontal Block Element]  [LABEL:Verticle block element]  [INPOUT:Vertical block element]
+*/
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+	
+.vvv li { display:block; clear:both; width:100%;} 
+.vvv label{ display:block;  width:100%; clear:both; float:none;} 
+.vvv input{ display:block; float:left;}
+.vvv select{ display:block; float:left;}
+.vvv textarea{ display:block; float:left;}
+
+
+
+.hvv{ overflow:hidden; height:1%; }
+.hvv li{ float:left; margin-right:10px; display:inline; width:auto; clear:none; }
+.hvv label{ display:block; width:auto; float:none;  }
+.hvv input{ display:block;}
+.hvv select{ display:block;}
+.hvv textarea{ display:block;}
+ul.form ul.hvv{float:left}
+ul.form ul.hvv li{ float:left; clear:none;}
+ul.form ul.hvv label{float:none; display:block;}
+ul.form ul.hvv input{ float:none; display:block;}
+
+
+
+.hii{ overflow:hidden; height:1% }
+.hii li{ float:left; margin-right:10px; display:inline; width:auto; border-bottom:0; clear:none;}
+.hii label{ display:inline; margin-right:0px; vertical-align:middle; text-align:left; width:auto; float:none;}
+.hii input{ display:inline; vertical-align:middle; float:none; }
+.hii select{ display:inline; vertical-align:middle; float:none}
+.hii textarea{ display:inline; vertical-align:middle;} 
+.hii li li{ clear:both; } /* reset second level lis */
+ul.form ul.hii{float:left}
+ul.form ul.hii li{ float:left; clear:none;}
+ul.form ul.hii label{float:none; width:auto; vertical-align:middle}
+ul.form ul.hii input, ul.form ul.hii select{ float:none; vertical-align:middle; margin-left:0px; margin-right:5px;}
+
+
+
+.hhh{ overflow:hidden; height:1% }
+.hhh li{ float:left; margin-right:10px; display:inline; width:auto; border-bottom:0;}
+.hhh label{ float:left; width:100px; }
+.hhh input{ float:left}
+.hhh select{ float:left}
+.hhh textarea{ float:left} 
+.hhh li li{ clear:both; } /* reset second level lis */
+
+.vii{ float:left;  width:auto}
+.vii li{ display:block; float:left; width:auto; clear:both;}
+.vii label{ display:inline; width:auto; vertical-align:middle; float:none;}
+.vii input{display:inline;  vertical-align:middle;  float:none; }
+.vii select{ display:inline;  vertical-align:middle;  float:none;}
+.vii textarea{display:inline;  vertical-align:middle;  float:none;}
+ul.form ul.vii{float:left}
+ul.form ul.vii li{ float:none; clear:none;}
+ul.form ul.vii label{float:none; width:auto; vertical-align:middle}
+ul.form ul.vii input, ul.form ul.vii select{ float:none; vertical-align:middle; margin-left:0px; margin-right:5px;}
+
+
+table.formTable td{ padding:5px;}
+table.formTable th{ padding:5px;}
+ul.form table.formTable select{ float:none;}
+ul.form table.formTable input{ display:inline; float:none; margin:0; padding:0;}
+ul.form table.formTable label{ display:inline; float:none; margin:0; padding:0;}
+ul.form table.formTable select{margin:0; padding:0; }
+
+.vhh{  float:left; display:inline;}
+.vhh li{ display:block; clear:both; float:none; width:auto;}
+.vhh label{ float:left; width:100px; display:inline; }
+.vhh input{ float:left; display:inline; margin-right:5px; }
+.vhh input[type=text], .vhh input[type=password] { width:200px; }
+.vhh select{ float:left; display:inline;  }
+.vhh textarea{ float:left; display:inline;  height:80px; overflow:auto;}
+ul.form ul.vhh{}
+
+
+ 
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+										/* LABEL MODIFIERS */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+label.v { display:block; float:none; width:auto; padding:3px; text-align:left}
+label.h { display:block; float:left; width:auto; display:inline;}
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+										/* LI MODIFIERS */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+ 
+li.inline input{display:inline; float:none; clear:none;}
+li.inline label{display:inline; float:none; clear:none;}
+li.fn{ float:none;}
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+										/* MULTI-SELECT BOX */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.multiSelect{ height:200px; width:200px; float:left; padding:0px; background-color:#FFFFFF; overflow:hidden; overflow:auto; border:0px inset #ccc; }
+.multiSelect .form{ height:auto; margin:0; padding:0; border:0;}
+.multiSelect .vhh{ margin:0; padding:0;}
+.multiSelect .vhh input{ float:left; } 
+.multiSelect .vhh label{ float:none; margin-left:20px; display:block; width:auto; clear:none; }
+.multiSelect .vhh li{ overflow:hidden; width:100%}
+.multiSelect .vii li{ width:100%;}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+										/* OTHER STYLES */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* COLOR CODE - FOR CLARIFICATION & DEBUGGING
+ul { background-color:#666}
+ul li{ background-color:#999}
+ul li ul{ background-color:#ccc}
+ul li ul li{ background-color:#eee}
+label{ background-color:#A0EFED; }*/
+
+/* ie 6 no border class (put on all check boxes and radio buttons if a border is set on inputs*/
+.form input.noBorder{ border:0px;}
+
+/* REQUIRED FIELD STLES */
+.requiredDesignation{ display:block; padding:5px 5px 5px 5px; margin-bottom:10px; }
+.required{ color:#FF0000;}
+.required label:Before{ content:"* "}
+.requiredDesignation:before{ content:"* " }
+
+/* FORM NOTES */
+.leftNote{ padding:3px 5px 0 5px; color:#FF9933; float:left}
+.bottomNote{ padding:0; color:#FF9933;  clear:both; display:block; padding-left: 50px;}
+.tar label{ text-align:right;}
+.rightNote{ padding:3px 5px 0 5px; color:#FF9933; float:right}
+
+
+
+/* GENERAL TWEAKING STYLES */
+.fl{ float:left;}
+.cb{ clear:both;}
+.w100p{ width:100%;}
+.mr20{ margin-right:20px;}
+.ml20{ margin-left:20px;}
+.offset1{ margin-left:130px;}
+.offset2{ margin-left:105px;}
+.offset3{ margin-left:230px;}
+.offset200{ margin-left:200px;}
+.offset180{ margin-left:180px;}
+
+
+/*input widths - based on the number of characters */
+.w50 { width:50px;}
+.w100{ width:100px;}
+
+/* Password validation */
+div.PasswordStrength { color: #000000; width: 80px; display: inline-block; text-align: center; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; border:0;  }
+div.PasswordStrength.Fail { background-color: #000000; color: #FFFFFF; }
+div.PasswordStrength.Poor { background-color: #FF0000; color:#fff; border:0;} 
+div.PasswordStrength.Weak { background-color: #FF6600; border:0; color:#fff;}
+div.PasswordStrength.Mild { background-color: #FF9900; border:0; color:#fff;}
+div.PasswordStrength.Strong { background-color: #087F07;  border:0; color:#fff;}
+.message{ padding:10px; text-align:center;}
+.message{ background-color:#FFFFCC; border:1px solid #eaea88}

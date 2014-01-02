@@ -1,0 +1,71 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.EventCategory.Management" access="public">	
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="EventCategoryManager" method="GetEventCategories" resultKey="request.EventCategories" />	
+			<event-arg name="GridQuery" variable="request.EventCategories" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="EventCategoryGrid" contentKey="request.EventCategoryGrid" />
+						
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />	
+			
+			<notify listener="EventCategoryManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<view-page name="EventCategoryList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Admin.EventCategory.Search" access="public">				
+			<notify listener="EventCategoryManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="EventCategoryManager" method="GetEventCategories" resultKey="request.EventCategories" />	
+			<event-arg name="GridQuery" variable="request.EventCategories" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="EventCategoryGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.EventCategory.Information" access="public">		
+			<notify listener="EventCategoryManager" method="GetEventCategoryDetails" resultKey="request.EventCategory" />
+					
+			<event-arg name="SelectedValue" variable="request.EventCategory.Status" />
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />
+			
+			<event-arg name="UrlStruct" variable="URL" />
+			<notify listener="AdminManager" method="GetSubmitButtons" resultKey="request.SubmitButtons" />
+			
+			<view-page name="EventCategoryForm" contentKey="request.content" />		
+			<view-page name="mainDisplayPage" />			
+		</event-handler>
+		
+		<event-handler event="Admin.EventCategory.Submit" access="public">					
+			<notify listener="EventCategoryManager" method="UpdateEventCategory" />		
+		</event-handler>
+		
+		<event-handler event="Admin.EventCategory.Delete" access="public">					
+			<notify listener="EventCategoryManager" method="DeleteEventCategory" />		
+		</event-handler>
+		
+	</event-handlers>
+	
+	<!-- PAGE-VIEWS -->
+	<page-views>
+		
+		<page-view name="EventCategoryList" page="/DisplayPages/admin/EventCategories/EventCategoryList.cfm" />
+		<page-view name="EventCategoryGrid" page="/DisplayPages/admin/EventCategories/EventCategoryGrid.cfm" />
+		<page-view name="EventCategoryForm" page="/DisplayPages/admin/EventCategories/EventCategoryForm.cfm" />					
+						
+	</page-views>
+
+</mach-ii>

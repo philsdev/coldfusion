@@ -1,0 +1,152 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Account.Management" access="public">	
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="AccountManager" method="GetAccounts" resultKey="request.Accounts"  />	
+			<event-arg name="GridQuery" variable="request.Accounts" />			
+			<execute subroutine="GetPaginationEnd" />
+				
+			<view-page name="AccountGrid" contentKey="request.AccountGrid" />
+						
+			<notify listener="SchoolManager" method="GetSchools" resultKey="request.Schools" />			
+			<event-arg name="FieldName" value="School" />
+			<event-arg name="FieldID" value="SchoolOptions" />
+			<event-arg name="DataQuery" variable="request.Schools" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Title" />
+			<event-arg name="SelectedValue" value="" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.SchoolBox" />
+			
+			<notify listener="GeographyManager" method="GetStates" resultKey="request.States" />			
+			<event-arg name="FieldName" value="State" />
+			<event-arg name="FieldID" value="StateOptions" />
+			<event-arg name="DataQuery" variable="request.States" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.StateBox" />
+						
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />
+			
+			<notify listener="AccountManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<view-page name="AccountList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Admin.Account.Search" access="public">					
+			<notify listener="AccountManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="AccountManager" method="GetAccounts" resultKey="request.Accounts"  />	
+			<event-arg name="GridQuery" variable="request.Accounts" />			
+			<execute subroutine="GetPaginationEnd" />		
+			
+			<view-page name="AccountGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.Account.Information" access="public">		
+			<notify listener="AccountManager" method="GetAccountDetails" resultKey="request.Account" />
+			
+			<notify listener="SchoolManager" method="GetDisplaySchools" resultKey="request.Schools" />			
+			<event-arg name="FieldName" value="School" />
+			<event-arg name="FieldID" value="School" />
+			<event-arg name="DataQuery" variable="request.Schools" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Title" />
+			<event-arg name="SelectedValue" variable="request.Account.SchoolID" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.SchoolBox" />
+			
+			<event-arg name="Country" value="US" />
+			<notify listener="GeographyManager" method="GetStates" resultKey="request.States" />			
+			<event-arg name="FieldName" value="State" />
+			<event-arg name="FieldID" value="State" />
+			<event-arg name="DataQuery" variable="request.States" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="request.Account.State" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.StateBox" />
+			
+			<event-arg name="ItemKey" value="user" />
+			<event-arg name="ItemID" variable="AccountID" />			
+			<notify listener="AdminManager" method="GetItemOriginal" resultKey="request.ItemOriginalPath" />
+			<notify listener="AdminManager" method="GetItemThumbnail" resultKey="request.ItemThumbnailPath" />
+			<notify listener="AdminManager" method="GetItemFullsize" resultKey="request.ItemFullsizePath" />
+			
+			<event-arg name="FieldName" value="IsAdvertiser" />
+			<event-arg name="SelectedValue" variable="request.Account.IsAdvertiser" />
+			<notify listener="AdminManager" method="GetBooleanBox" resultKey="request.AdvertiserBox" />
+			
+			<event-arg name="FieldName" value="IsDealer" />
+			<event-arg name="SelectedValue" variable="request.Account.IsDealer" />
+			<notify listener="AdminManager" method="GetBooleanBox" resultKey="request.DealerBox" />
+			
+			<event-arg name="SelectedValue" variable="request.Account.Status" />
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />
+			
+			<event-arg name="FieldName" value="TermsAndConditions" />
+			<event-arg name="SelectedValue" variable="request.Account.TermsAndConditions" />
+			<notify listener="AdminManager" method="GetBooleanBox" resultKey="request.TermsBox" />
+			
+			<event-arg name="UrlStruct" variable="URL" />
+			<notify listener="AdminManager" method="GetSubmitButtons" resultKey="request.SubmitButtons" />
+			
+			<view-page name="AccountForm" contentKey="request.content" />		
+			<view-page name="mainDisplayPage" />			
+		</event-handler>
+		
+		<event-handler event="Admin.Account.Submit" access="public">	
+			<event-arg name="InputValue" variable="Password" />
+			<notify listener="AdminManager" method="GetHashedValue" resultKey="request.HashedPassword"  />
+			<event-arg name="Password" variable="request.HashedPassword" />		
+			<notify listener="AccountManager" method="UpdateAccount" />		
+		</event-handler>
+		
+		<event-handler event="Admin.Account.Delete" access="public">					
+			<notify listener="AccountManager" method="DeleteAccount" />		
+		</event-handler>
+		
+		<event-handler event="Admin.Account.Options" access="public">		
+			<notify listener="AdminManager" method="GetMaxRows" resultKey="request.MaxRows" />
+			<event-arg name="EndRow" variable="request.MaxRows" />
+						
+			<notify listener="AccountManager" method="GetUsers" resultKey="request.Accounts" />
+			
+			<event-arg name="FieldName" value="Username" />
+			<event-arg name="FieldID" value="UsernameOptions" />
+			<event-arg name="DataQuery" variable="request.Accounts" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.content" />
+			
+			<view-page name="optionDisplayPage" />			
+		</event-handler>
+		
+		<event-handler event="AJAX.Account.IsValidSchoolEmail" access="public">			
+			<notify listener="EmailManager" method="IsValidSchoolEmail"  />
+		</event-handler>
+		
+		
+		
+	</event-handlers>
+	
+	<!-- PAGE-VIEWS -->
+	<page-views>
+		
+		<page-view name="AccountList" page="/DisplayPages/admin/Accounts/AccountList.cfm" />
+		<page-view name="AccountGrid" page="/DisplayPages/admin/Accounts/AccountGrid.cfm" />
+		<page-view name="AccountForm" page="/DisplayPages/admin/Accounts/AccountForm.cfm" />					
+						
+	</page-views>
+
+</mach-ii>

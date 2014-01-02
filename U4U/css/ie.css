@@ -1,0 +1,15 @@
+@charset "utf-8";
+#topSearchBox{ position:absolute; right:0; top:35px;}
+.searchContainer{ border:1px solid #000; background-color:#FFF;   }
+.searchContainer input{ border:0px inset #000; background-image:url(../images/bg-text-input.png); background-position:top; background-repeat:repeat-x; background-color:transparent; margin-top:-1px; }
+.form .last{ padding-bottom:0;}
+.form input[type="submit"], button{ padding:5px 10px;}
+.actionButton{ border:1px solid #336614 }
+.shadowed{ border:1px solid #ccc;}
+.contentListHeader .searchContainer { border:0; padding-top:1px;}
+.contentListHeader .searchContainer input{ background-image:none; border:1px solid #ccc;}
+#content .headerFunctions select{ margin-top:5px;}
+.fbLikeBtn{ width:100px; float:none; display:inline-block; margin-left:10px;}
+
+
+

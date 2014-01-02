@@ -1,0 +1,102 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.Community.Management" access="public">	
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="CommunityManager" method="GetCommunities" resultKey="request.Communities"  />
+			<event-arg name="GridQuery" variable="request.Communities" />	
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="CommunityGrid" contentKey="request.CommunityGrid" />
+			
+			<notify listener="AdminManager" method="GetMaxRows" resultKey="request.MaxRows" />
+			<event-arg name="EndRow" variable="request.MaxRows" />
+						
+			<notify listener="CommunityCategoryManager" method="GetDisplayCategories" resultKey="request.Categories" />			
+			<event-arg name="FieldName" value="Category" />
+			<event-arg name="FieldID" value="CategoryOptions" />
+			<event-arg name="DataQuery" variable="request.Categories" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Title" />
+			<event-arg name="SelectedValue" variable="" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.CategoryBox" />
+						
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />	
+			
+			<notify listener="CommunityManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<view-page name="CommunityList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Admin.Community.Search" access="public">					
+			<notify listener="CommunityManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortColumn" />	
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="CommunityManager" method="GetCommunities" resultKey="request.Communities"  />
+			<event-arg name="GridQuery" variable="request.Communities" />	
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="CommunityGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.Community.Information" access="public">		
+			<notify listener="CommunityManager" method="GetCommunityDetails" resultKey="request.Community" />
+			
+			<event-arg name="sidx" value="lastname" />
+			<notify listener="AccountManager" method="GetUsers" resultKey="request.Users" />			
+			<event-arg name="FieldName" value="User" />
+			<event-arg name="FieldID" value="User" />
+			<event-arg name="DataQuery" variable="request.Users" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Label" />
+			<event-arg name="SelectedValue" variable="request.Community.UserID" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.UserBox" />
+			
+			<notify listener="CommunityCategoryManager" method="GetDisplayCategories" resultKey="request.Categories" />		
+			<event-arg name="FieldName" value="Category" />
+			<event-arg name="FieldID" value="Category" />
+			<event-arg name="DataQuery" variable="request.Categories" />
+			<event-arg name="QueryIDColumn" value="ID" />
+			<event-arg name="QueryLabelColumn" value="Title" />
+			<event-arg name="SelectedValue" variable="request.Community.CategoryID" />
+			<notify listener="AdminManager" method="GetSelectBox" resultKey="request.CategoryBox" />
+			
+			<event-arg name="SelectedValue" variable="request.Community.Status" />
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />
+			
+			<event-arg name="UrlStruct" variable="URL" />
+			<notify listener="AdminManager" method="GetSubmitButtons" resultKey="request.SubmitButtons" />
+			
+			<view-page name="CommunityForm" contentKey="request.content" />		
+			<view-page name="mainDisplayPage" />			
+		</event-handler>
+		
+		<event-handler event="Admin.Community.Submit" access="public">					
+			<notify listener="CommunityManager" method="UpdateCommunity" />		
+		</event-handler>
+		
+		<event-handler event="Admin.Community.Delete" access="public">					
+			<notify listener="CommunityManager" method="DeleteCommunity" />		
+		</event-handler>
+		
+	</event-handlers>
+	
+	<!-- PAGE-VIEWS -->
+	<page-views>
+		
+		<page-view name="CommunityList" page="/DisplayPages/admin/Communities/CommunityList.cfm" />
+		<page-view name="CommunityGrid" page="/DisplayPages/admin/Communities/CommunityGrid.cfm" />
+		<page-view name="CommunityForm" page="/DisplayPages/admin/Communities/CommunityForm.cfm" />					
+						
+	</page-views>
+
+</mach-ii>

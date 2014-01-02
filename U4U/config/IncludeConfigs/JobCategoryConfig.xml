@@ -1,0 +1,71 @@
+<mach-ii version="1.5">
+
+	<!-- EVENT HANDLERS -->
+	<event-handlers>		
+						
+		<!-- ///////////////////////////////////////////////////////////// -->
+		<!-- ///////////////////     ADMIN EVENTS      /////////////////// -->
+		<!-- ///////////////////////////////////////////////////////////// -->
+		
+		<event-handler event="Admin.JobCategory.Management" access="public">
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="JobCategoryManager" method="GetJobCategories" resultKey="request.JobCategories" />			
+			<event-arg name="GridQuery" variable="request.JobCategories" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="JobCategoryGrid" contentKey="request.JobCategoryGrid" />
+						
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />	
+			
+			<notify listener="JobCategoryManager" method="GetSortOptions" resultKey="request.SortOptions" />			
+			<execute subroutine="GetSortBox" />
+			
+			<view-page name="JobCategoryList" contentKey="request.content" />
+			<view-page name="mainDisplayPage" />
+		</event-handler>
+		
+		<event-handler event="Admin.JobCategory.Search" access="public">			
+			<notify listener="JobCategoryManager" method="GetSortOptions" resultKey="request.SortOptions" />
+			<execute subroutine="GetSortColumn" />
+			
+			<execute subroutine="GetPaginationStart" />			
+			<notify listener="JobCategoryManager" method="GetJobCategories" resultKey="request.JobCategories" />			
+			<event-arg name="GridQuery" variable="request.JobCategories" />
+			<execute subroutine="GetPaginationEnd" />
+			
+			<view-page name="JobCategoryGrid" />
+		</event-handler>
+		
+		<event-handler event="Admin.JobCategory.Information" access="public">		
+			<notify listener="JobCategoryManager" method="GetJobCategoryDetails" resultKey="request.JobCategory" />
+					
+			<event-arg name="SelectedValue" variable="request.JobCategory.Status" />
+			<notify listener="AdminManager" method="GetStatusBox" resultKey="request.StatusBox" />
+			
+			<event-arg name="UrlStruct" variable="URL" />
+			<notify listener="AdminManager" method="GetSubmitButtons" resultKey="request.SubmitButtons" />
+			
+			<view-page name="JobCategoryForm" contentKey="request.content" />		
+			<view-page name="mainDisplayPage" />			
+		</event-handler>
+		
+		<event-handler event="Admin.JobCategory.Submit" access="public">					
+			<notify listener="JobCategoryManager" method="UpdateJobCategory" />		
+		</event-handler>
+		
+		<event-handler event="Admin.JobCategory.Delete" access="public">					
+			<notify listener="JobCategoryManager" method="DeleteJobCategory" />		
+		</event-handler>
+		
+	</event-handlers>
+	
+	<!-- PAGE-VIEWS -->
+	<page-views>
+		
+		<page-view name="JobCategoryList" page="/DisplayPages/admin/JobCategories/JobCategoryList.cfm" />
+		<page-view name="JobCategoryGrid" page="/DisplayPages/admin/JobCategories/JobCategoryGrid.cfm" />
+		<page-view name="JobCategoryForm" page="/DisplayPages/admin/JobCategories/JobCategoryForm.cfm" />					
+						
+	</page-views>
+
+</mach-ii>
