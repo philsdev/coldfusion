@@ -1,3 +1,0 @@
-<CFOUTPUT>
-<h1>Oops!</h1>
-</CFOUTPUT>
