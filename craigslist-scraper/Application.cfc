@@ -1,6 +1,6 @@
 <cfcomponent> 
   <cfscript>
-    THIS.name = "Demorati"; 
+    THIS.name = "Craigslist Scraper"; 
     THIS.clientmanagement="True"; 
     THIS.loginstorage="Session"; 
     THIS.sessionmanagement="True"; 
@@ -14,19 +14,18 @@
   </cfscript>
   
   <cffunction name="onRequestStart" returnType="boolean"> 
-		<cfargument name="targetPage" type="string" required="true" /> 
-		
-		<cfparam name="SESSION.IsBlocked" default="false" />
+    <cfargument name="targetPage" type="string" required="true" /> 
+    <cfparam name="SESSION.IsBlocked" default="false" />
     
     <cfsetting requesttimeout="600" />
 
     <cfscript>
       REQUEST.utility = CreateObject("component", "cfc.utility");
       
-      REQUEST.mapsApiKey = "AIzaSyAo-GNLpg-1HVu9pVLZamjZcCSxw2YeF40";    
+      REQUEST.mapsApiKey = "********";    
       REQUEST.geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json";
       
-      REQUEST.proxyServer = "199.168.148.150";
+      REQUEST.proxyServer = "***.***.***.***";
       REQUEST.proxyPort = "10080";
 
       REQUEST.isSleepEnabled = false;
@@ -54,7 +53,7 @@
       REQUEST.httpError = "<p><strong>HTTP result is NOT OK!</strong></p>";
     </cfscript>
 		
-		<cfreturn true /> 
-	</cffunction>
+    <cfreturn true /> 
+  </cffunction>
   
 </cfcomponent>
